@@ -19,7 +19,7 @@
 
 		input = input.replace(/\{\{([^}]+)\}\}/g, '`$1`');
 		input = input.replace(/\?\?((?:.[^?]|[^?].)+)\?\?/g, '<cite>$1</cite>');
-		input = input.replace(/\+([^+]*)\+/g, '<ins>$1</ins>');
+		input = input.replace(/\+([^+]*)\+/g, '_$1_');
 		input = input.replace(/\^([^^]*)\^/g, '<sup>$1</sup>');
 		input = input.replace(/~([^~]*)~/g, '<sub>$1</sub>');
 		input = input.replace(/-([^-]*)-/g, '-$1-');
@@ -95,6 +95,9 @@
 
 		input = input.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '[$1|$2]');
 		input = input.replace(/<([^>]+)>/g, '[$1]');
+
+
+		input = input.replace(/_([^_]+)`/g, '+$1+');
 
 		return input;
 	};
