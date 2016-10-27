@@ -55,6 +55,7 @@
 			return to + content + to;
 		});
 		// Make multi-level bulleted lists work
+        // cannot recognize tab
   		input = input.replace(/^(\s*)- (.*)$/gm, function (match,level,content) {
     			var len = 2;
     			if(level.length > 0) {
@@ -91,7 +92,7 @@
 			return code;
 		});
 
-		input = input.replace(/`([^`]+)`/g, '{{$1}}');
+		input = input.replace(/`([^`]+)`/g, '*{{$1}}*'); // make bolder
 
 		input = input.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '[$1|$2]');
 		input = input.replace(/<([^>]+)>/g, '[$1]');
